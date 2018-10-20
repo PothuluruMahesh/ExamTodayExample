@@ -1,0 +1,21 @@
+﻿<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+        <script>
+            $.getJSON('TestingJson.json', function (data) {
+                console.log(data);
+            var output ="<h3>" ;
+                $.each(data, function (key, val) {
+                    output +=   val.name + " " + val.zipcode + "<br>";
+                });
+                output += "</h3>";
+            $('#update').html(output);
+        });
+    </script>
+</head>
+<body>
+    <div id="update"></div>
+    
+</body>
+</html>

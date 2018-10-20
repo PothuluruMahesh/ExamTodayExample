@@ -1,0 +1,31 @@
+﻿<html>
+<body>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.3.0/dist/global/Rx.js"></script>
+    <script>
+        var observable = Rx.Observable.interval(2000);
+        observable.filter(function (value) {
+            var k = true;
+            for (var i = 2; i <= 100; i++) {
+                for (var j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        k = false;
+                    }
+                }
+                if (k) {
+                    document.writeln(i + " ");
+                }
+                k = true;
+            }
+        }).subscribe({
+            next: function (value) {
+                console.log(value);
+            }
+        });
+        setTimeout(() => {
+            subscription.unsubscribe();
+        }, 2000);   
+    </script>
+</body>
+</html>
+
+ 
